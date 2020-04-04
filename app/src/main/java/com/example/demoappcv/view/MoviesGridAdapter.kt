@@ -1,17 +1,16 @@
-package com.example.demoappcv
+package com.example.demoappcv.view
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.demoappcv.R.layout.movie_tile
-import kotlinx.android.synthetic.main.movie_tile.view.*
+import com.example.demoappcv.infrastructure.Movie
 
 class MoviesGridAdapter(private val onCardClickedListener: (Movie) -> Unit) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private var adapterItems = FakeData.movieList
+    private var adapterItems = listOf<MovieAdapterItem>()
     //TODO change adapterItems to implement movies from sql
 
     fun updateItems(adapterItems: List<MovieAdapterItem>) {
@@ -27,7 +26,10 @@ class MoviesGridAdapter(private val onCardClickedListener: (Movie) -> Unit) :
                 false
             ) as View
 
-        return MovieViewHolder(onCardClickedListener, movieTile)
+        return MovieViewHolder(
+            onCardClickedListener,
+            movieTile
+        )
     }
 
     override fun getItemCount() = adapterItems.size

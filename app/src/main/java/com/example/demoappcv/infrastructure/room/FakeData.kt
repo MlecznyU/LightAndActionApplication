@@ -1,4 +1,7 @@
-package com.example.demoappcv
+package com.example.demoappcv.infrastructure.room
+
+import com.example.demoappcv.view.MovieAdapterItem
+import com.example.demoappcv.infrastructure.Movie
 
 object FakeData {
     val moviesTitle = arrayOf(
@@ -16,6 +19,7 @@ object FakeData {
     val movieList = listOf<MovieAdapterItem>(
         MovieAdapterItem(
             Movie(
+                1,
                 "Historia małżeńska",
                 8.0,
                 "https://fwcdn.pl/fpo/80/90/818090/7902235.3.jpg"
@@ -23,6 +27,7 @@ object FakeData {
         ),
         MovieAdapterItem(
             Movie(
+                2,
                 "Historia małżeńska",
                 8.0,
                 "https://fwcdn.pl/fpo/80/90/818090/7902235.3.jpg"
@@ -30,6 +35,7 @@ object FakeData {
         ),
         MovieAdapterItem(
             Movie(
+                3,
                 "Historia małżeńska",
                 8.0,
                 "https://fwcdn.pl/fpo/80/90/818090/7902235.3.jpg"
@@ -37,6 +43,7 @@ object FakeData {
         ),
         MovieAdapterItem(
             Movie(
+                4,
                 "Historia małżeńska",
                 8.0,
                 "https://fwcdn.pl/fpo/80/90/818090/7902235.3.jpg"
@@ -44,6 +51,7 @@ object FakeData {
         ),
         MovieAdapterItem(
             Movie(
+                5,
                 "Historia małżeńska",
                 8.0,
                 "https://fwcdn.pl/fpo/80/90/818090/7902235.3.jpg"
@@ -51,6 +59,7 @@ object FakeData {
         ),
         MovieAdapterItem(
             Movie(
+                6,
                 "Historia małżeńska",
                 8.0,
                 "https://fwcdn.pl/fpo/80/90/818090/7902235.3.jpg"
@@ -58,6 +67,7 @@ object FakeData {
         ),
         MovieAdapterItem(
             Movie(
+                7,
                 "Historia małżeńska",
                 8.0,
                 "https://fwcdn.pl/fpo/80/90/818090/7902235.3.jpg"
