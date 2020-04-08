@@ -1,27 +1,29 @@
 package com.example.demoappcv.repository
 
-import android.app.Application
 import androidx.lifecycle.LiveData
 import com.example.demoappcv.infrastructure.Movie
 import com.example.demoappcv.infrastructure.room.MovieDao
-import com.example.demoappcv.infrastructure.room.MovieDatabaseRoom
+import javax.inject.Inject
+import javax.inject.Singleton
 
-
-class MovieRepository(application: Application) {
-    private var db = MovieDatabaseRoom.getInstance(application)
-    private val movieDao : MovieDao = db.movieDao
+@Singleton
+class MovieRepository @Inject constructor(private val movieDao: MovieDao) {
 
 
     fun getAllMovies(): LiveData<List<Movie>> {
         return movieDao.getAllMovies()
     }
 
-    fun getMovieById(id: String): Movie {
+    fun getMovieById(id: String): LiveData<Movie> {
         return movieDao.getMovieById(id)
     }
 
-    fun updateMovie(movie: Movie) {
+    suspend fun updateMovie(movie: Movie) {
         movieDao.update(movie)
+    }
+
+    suspend fun insertMovie(movie: Movie){
+        movieDao.insert(movie)
     }
 
 }

@@ -1,6 +1,5 @@
 package com.example.demoappcv.infrastructure
 
-import com.example.demoappcv.view.MovieAdapterItem
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -10,8 +9,4 @@ class Movie(
     val title: String,
     val score: Double,
     val urlPoster: String
-){
-    fun mapToAdapterItem(): MovieAdapterItem {
-        return MovieAdapterItem(this)
-    }
-}
+)

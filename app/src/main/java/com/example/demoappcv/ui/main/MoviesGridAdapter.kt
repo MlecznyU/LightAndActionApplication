@@ -1,4 +1,4 @@
-package com.example.demoappcv.view
+package com.example.demoappcv.ui.main
 
 import android.view.LayoutInflater
 import android.view.View
@@ -10,10 +10,9 @@ import com.example.demoappcv.infrastructure.Movie
 class MoviesGridAdapter(private val onCardClickedListener: (Movie) -> Unit) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private var adapterItems = listOf<MovieAdapterItem>()
-    //TODO change adapterItems to implement movies from sql
+    private var adapterItems = listOf<Movie>()
 
-    fun updateItems(adapterItems: List<MovieAdapterItem>) {
+    fun updateItems(adapterItems: List<Movie>) {
         this.adapterItems = adapterItems
         notifyDataSetChanged()
     }
@@ -36,7 +35,7 @@ class MoviesGridAdapter(private val onCardClickedListener: (Movie) -> Unit) :
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
 
-        val adapterItem = adapterItems[position] as MovieAdapterItem
+        val adapterItem = adapterItems[position]
         (holder as MovieViewHolder).bind(adapterItem, position)
 
     }

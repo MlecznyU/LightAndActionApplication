@@ -1,4 +1,4 @@
-package com.example.demoappcv.view
+package com.example.demoappcv.ui.main
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
@@ -13,17 +13,17 @@ class MovieViewHolder(
 ) :
     RecyclerView.ViewHolder(itemView) {
 
-    fun bind(item: MovieAdapterItem, position: Int) {
+    fun bind(movie: Movie, position: Int) {
         val title = itemView.mainTitleTV
         val score = itemView.mainScoreTV
         val poster = itemView.posterTV
         val tile = itemView.movieTileContainerCV
 
         tile.setOnClickListener {
-            onCardClickedListener(item.movie)
+            onCardClickedListener(movie)
         }
-        Glide.with(itemView.context).load(item.movie.urlPoster).into(poster)
-        title.text = item.movie.title
-        score.text = item.movie.score.toString()
+        Glide.with(itemView.context).load(movie.urlPoster).into(poster)
+        title.text = movie.title
+        score.text = movie.score.toString()
     }
 }
