@@ -3,6 +3,7 @@ package com.example.demoappcv.di
 import android.app.Application
 import com.example.demoappcv.LightAndActionApplication
 import com.example.demoappcv.di.modules.ActivityBindingModule
+import com.example.demoappcv.infrastructure.network.RetrofitModule
 import com.example.demoappcv.infrastructure.room.module.RoomModule
 import dagger.BindsInstance
 import dagger.Component
@@ -15,7 +16,8 @@ import javax.inject.Singleton
     modules = [
         AndroidSupportInjectionModule::class,
         ActivityBindingModule::class,
-        RoomModule::class
+        RoomModule::class,
+        RetrofitModule::class
     ]
 )
 interface ApplicationComponent : AndroidInjector<LightAndActionApplication> {

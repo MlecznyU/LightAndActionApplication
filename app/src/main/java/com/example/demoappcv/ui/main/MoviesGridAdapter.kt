@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.demoappcv.R.layout.movie_tile
-import com.example.demoappcv.infrastructure.Movie
+import com.example.demoappcv.infrastructure.room.model.Movie
 
 class MoviesGridAdapter(private val onCardClickedListener: (Movie) -> Unit) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {

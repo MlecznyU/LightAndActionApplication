@@ -1,4 +1,4 @@
-package com.example.demoappcv.infrastructure
+package com.example.demoappcv.infrastructure.room.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -8,5 +8,8 @@ class Movie(
     @PrimaryKey(autoGenerate = true) val id: Int,
     val title: String,
     val score: Double,
-    val urlPoster: String
+    val urlPoster: String,
+    val plot: String,
+    val metascore: Double,
+    val year: String
 )

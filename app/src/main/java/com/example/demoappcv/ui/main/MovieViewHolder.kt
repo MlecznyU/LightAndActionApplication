@@ -3,7 +3,7 @@ package com.example.demoappcv.ui.main
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.demoappcv.infrastructure.Movie
+import com.example.demoappcv.infrastructure.room.model.Movie
 import kotlinx.android.synthetic.main.movie_tile.view.*
 
 

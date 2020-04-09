@@ -1,33 +1,44 @@
 package com.example.demoappcv.ui.details
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.example.demoappcv.R
+import com.example.demoappcv.infrastructure.room.model.Movie
+import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.movie_detail.*
 import javax.inject.Inject
 
-class MovieDetailActivity : AppCompatActivity() {
+class MovieDetailActivity : DaggerAppCompatActivity() {
+
+
+    @Inject
+    lateinit var movieDetailActivityViewModel: MovieDetailActivityViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.movie_detail)
-
     }
 
     override fun onResume() {
         super.onResume()
-        loadMovieDetail()
-
+        getMovieData().observe(this, observer())
     }
 
-    private fun loadMovieDetail() {
-        if (intent.hasExtra("movie_title")) detialTitleTV.text =
-            intent.getCharSequenceExtra("movie_title")
-        if (intent.hasExtra("movie_score")) detailScoreTV.text =
-            intent.getCharSequenceExtra("movie_score")
-        if (intent.hasExtra("movie_poster_url")) Glide.with(this)
-            .load(intent.getCharSequenceExtra("movie_poster_url"))
-            .into(detailPosterIV)
+    private fun getMovieData(): LiveData<Movie> {
+        val id = intent.getIntExtra("id", -1)
+        return movieDetailActivityViewModel.getMovieDetail(id)
+    }
+
+    private fun observer(): Observer<Movie> {
+        return Observer {
+            Glide.with(this).load(it.urlPoster).into(detailPosterIV)
+            detialTitleTV.text = it.title
+            detailMetascoreTV.text = it.metascore.toString()
+            detailScoreTV.text = it.score.toString()
+            detailPlotTV.text = it.plot
+            detailYearTV.text = it.year
+        }
     }
 }

@@ -2,16 +2,13 @@ package com.example.demoappcv.infrastructure.room
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.example.demoappcv.infrastructure.Movie
+import com.example.demoappcv.infrastructure.room.model.Movie
 
 @Dao
 interface MovieDao {
 
-    @Update
-    fun update(movie: Movie)
-
-    @Query("SELECT * FROM movies_table WHERE id LIKE :movieId")
-    fun getMovieById(movieId: String): LiveData<Movie>
+    @Query("SELECT * FROM movies_table WHERE id = :movieId")
+    fun getMovieById(movieId: Int): LiveData<Movie>
 
     @Query("SELECT * FROM movies_table")
     fun getAllMovies(): LiveData<List<Movie>>
@@ -21,5 +18,8 @@ interface MovieDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(movie: Movie)
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insert(movies: List<Movie>)
 
 }
