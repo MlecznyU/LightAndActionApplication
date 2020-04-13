@@ -36,7 +36,7 @@ class MoviesGridAdapter(private val onCardClickedListener: (Movie) -> Unit) :
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
 
         val adapterItem = adapterItems[position]
-        (holder as MovieViewHolder).bind(adapterItem, position)
+        (holder as MovieViewHolder).bind(adapterItem)
 
     }
 }

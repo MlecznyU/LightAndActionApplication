@@ -13,11 +13,11 @@ class MovieViewHolder(
 ) :
     RecyclerView.ViewHolder(itemView) {
 
-    fun bind(movie: Movie, position: Int) {
+    fun bind(movie: Movie) {
         val title = itemView.mainTitleTV
         val score = itemView.mainScoreTV
         val poster = itemView.posterTV
-        val tile = itemView.movieTileContainerCV
+        val tile = itemView.moviePlotContainerCV
 
         tile.setOnClickListener {
             onCardClickedListener(movie)

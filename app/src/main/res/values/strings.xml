@@ -1,4 +1,19 @@
 <resources>
     <string name="app_name">DemoAppCV</string>
     <string name="refresh">refresh</string>
+    <string name="detail_plot">\"After the devastating events of Avengers: Infinity War (2018), the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos\' actions and restore balance to the universe.\"</string>
+    <string name="_detailYearTV">2003</string>
+    <string name="_detailRuntimeTV">2.2</string>
+    <string name="_detailDirectorTV">Anthony Russo, Joe Russo</string>
+    <string name="_detailActors">Robert Downey Jr., Chris Evans, Mark Ruffalo, Chris Hemsworth</string>
+    <string name="_detailGenre">Action, Adventure, Drama, Sci-Fi</string>
+    <string name="_detailCountryTV">USA</string>
+    <string name="_detailAwardsTV">Nominated for 1 Oscar. Another 60 wins and 96 nominations.</string>
+    <string name="_detailProductionTV">Marvel Studio</string>
+    <string name="_detailDirectorTVc">Directed by:</string>
+    <string name="_detailMetascoreTV">2.3</string>
+    <string name="_detailScoreTVc">Imdb Score:</string>
+    <string name="_detailScoreTV">2.3</string>
+    <string name="_detailMetascoreTVs">Metascore:</string>
+    <string name="_detailTitleTV">The Room</string>
 </resources>

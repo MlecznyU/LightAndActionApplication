@@ -43,13 +43,9 @@ class ConnectivityInterceptor @Inject constructor(private val context: Applicati
                         ConnectivityManager.TYPE_ETHERNET -> true
                         else -> false
                     }
-
                 }
             }
         }
-
         return result
-
     }
-
 }

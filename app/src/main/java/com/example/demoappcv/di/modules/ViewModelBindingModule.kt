@@ -26,5 +26,4 @@ abstract class ViewModelBindingModule {
     @ViewModelKey(MovieDetailActivityViewModel::class)
     abstract fun localizationsViewModule(viewModel: MovieDetailActivityViewModel): ViewModel
 
-
 }

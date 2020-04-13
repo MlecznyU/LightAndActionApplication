@@ -11,6 +11,7 @@ import com.example.demoappcv.R
 import com.example.demoappcv.ui.details.MovieDetailActivity
 import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -33,17 +34,14 @@ class MainActivity : DaggerAppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         super.onCreateOptionsMenu(menu)
-        menuInflater.inflate(R.menu.menu, menu)
-        return true;
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.refreshAb) {
-            Toast.makeText(this, "Database has been refreshed!", Toast.LENGTH_SHORT).show()
-            GlobalScope.launch {
-                model.updateMovies()
-            }
-        }else{
+            internetConnectionCheck()
+        } else {
             return super.onOptionsItemSelected(item)
         }
         return true
@@ -63,5 +61,24 @@ class MainActivity : DaggerAppCompatActivity() {
         model.getAllMovies().observe(this, Observer() {
             adapter.updateItems(it)
         })
+    }
+
+    private fun internetConnectionCheck() {
+        GlobalScope.launch(Dispatchers.Main) {
+            if (model.updateMovies()) {
+                model.updateMovies()
+                Toast.makeText(
+                    this@MainActivity,
+                    "Database has been refreshed!",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
+                Toast.makeText(
+                    this@MainActivity,
+                    "No internet connection\nCannot update database",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
     }
 }

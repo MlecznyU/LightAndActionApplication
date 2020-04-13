@@ -26,9 +26,8 @@ interface ApplicationComponent : AndroidInjector<LightAndActionApplication> {
     interface Builder {
 
         @BindsInstance
-        fun application(application: Application): ApplicationComponent.Builder
+        fun application(application: Application): Builder
 
         fun build(): ApplicationComponent
     }
-
 }

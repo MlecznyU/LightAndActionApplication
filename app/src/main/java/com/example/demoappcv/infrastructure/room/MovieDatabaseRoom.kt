@@ -4,10 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.demoappcv.infrastructure.room.model.Movie
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.launch
 
 @Database(entities = [Movie::class], version = 1, exportSchema = false)
 abstract class MovieDatabaseRoom : RoomDatabase() {
@@ -16,7 +13,7 @@ abstract class MovieDatabaseRoom : RoomDatabase() {
 
     companion object {
         private var InstanceOfMovieDatabaseRoom: MovieDatabaseRoom? = null
-        
+
         @Synchronized
         fun getInstance(
             context: Context

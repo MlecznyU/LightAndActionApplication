@@ -16,4 +16,5 @@ abstract class ActivityBindingModule {
     @ActivityScoped
     @ContributesAndroidInjector
     abstract fun movieDetailActivity(): MovieDetailActivity
+
 }
